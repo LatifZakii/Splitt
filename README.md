@@ -60,11 +60,203 @@ Splitt/
     └── EmptyStateView.swift      # Reusable empty state UI
 ```
 
-## Building the App
+## Getting Started
 
-1. Open `Splitt.xcodeproj` in Xcode
-2. Select a simulator or device
-3. Press Cmd+R to build and run
+### Prerequisites
+
+Before running the app, ensure you have:
+- **macOS 13.0+** (Ventura or later)
+- **Xcode 15.0+** with Command Line Tools installed
+- **iOS 17.0+ Simulator** or physical device
+- Active **Apple Developer account** (for device deployment)
+
+### Installation & Setup
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/LatifZakii/Splitt.git
+   cd Splitt
+   ```
+
+2. **Open in Xcode**
+   ```bash
+   open Splitt.xcodeproj
+   ```
+   Or double-click `Splitt.xcodeproj` in Finder
+
+3. **Select Target Device**
+   - In Xcode, click the device selector in the toolbar
+   - Choose an iOS 17+ simulator (e.g., "iPhone 15 Pro")
+   - Or connect a physical device with iOS 17+
+
+4. **Build & Run**
+   - Press `Cmd + R` or click the Play button
+   - Wait for the build to complete (first build may take 1-2 minutes)
+   - The app will launch automatically on your selected device
+
+### First Launch Setup
+
+When you first launch the app:
+
+1. **Onboarding Screen** will appear
+2. Enter your **name** (required)
+3. Optionally add your **email** and **phone number**
+4. Tap **"Get Started"**
+5. You'll be taken to the main app with 4 tabs
+
+## Next Steps
+
+### 1. Create a Pull Request
+
+Your code is on the `claude/splitwise-clone-app-1GVEq` branch. To merge it to main:
+
+**Option A: Via GitHub Web Interface**
+1. Visit: https://github.com/LatifZakii/Splitt/pull/new/claude/splitwise-clone-app-1GVEq
+2. Review the changes (24 files added)
+3. Add a title: "Complete Splitwise Clone iOS App"
+4. Review the description (auto-populated)
+5. Click **"Create Pull Request"**
+6. Review and merge when ready
+
+**Option B: Via Command Line**
+```bash
+# Install GitHub CLI if not already installed
+brew install gh
+
+# Create pull request
+gh pr create \
+  --title "Complete Splitwise Clone iOS App" \
+  --body "Implements full Splitwise clone with groups, expenses, friends, and balance tracking" \
+  --base main
+```
+
+### 2. Test the App
+
+**Basic Testing Flow:**
+
+1. **Add Friends** (Friends Tab)
+   - Tap the `+` button
+   - Add 2-3 friends (e.g., "Alice", "Bob", "Charlie")
+   - Include email/phone if desired
+
+2. **Create a Group** (Groups Tab)
+   - Tap the `+` button
+   - Name: "Roommates" or "Trip to Paris"
+   - Select an icon (e.g., house or airplane)
+   - Add your friends as members
+   - Tap **"Create"**
+
+3. **Add an Expense**
+   - Open the group you created
+   - Tap the `+` button in the group detail view
+   - Description: "Dinner at restaurant"
+   - Amount: $120
+   - Paid by: Select yourself
+   - Category: "Food"
+   - Split type: "Equally"
+   - Tap **"Add"**
+
+4. **View Balances**
+   - In the group detail, tap **"View Balances"**
+   - See who owes whom
+   - Notice the simplified transactions
+
+5. **Settle Up**
+   - When someone pays you back, tap their name
+   - Tap **"Record Payment"**
+   - Enter the amount
+   - Balances update automatically
+
+6. **Check Activity** (Activity Tab)
+   - View all expenses and settlements chronologically
+   - Filter by date or transaction type
+
+7. **Edit Profile** (Account Tab)
+   - View your statistics
+   - Edit name, email, phone
+   - See total expenses and transactions
+
+### 3. Deploy to Physical Device
+
+To run on your iPhone/iPad:
+
+1. **Connect Device**
+   - Connect via USB cable
+   - Unlock device and trust computer
+
+2. **Configure Signing**
+   - In Xcode, select the `Splitt` target
+   - Go to **"Signing & Capabilities"** tab
+   - Select your **Team** (Apple Developer account)
+   - Xcode will automatically provision the app
+
+3. **Run on Device**
+   - Select your device from the device selector
+   - Press `Cmd + R`
+   - First time: Settings > General > VPN & Device Management > Trust Developer
+
+4. **Test on Real Device**
+   - Better performance than simulator
+   - Test touch interactions and gestures
+   - Verify data persistence across app launches
+
+### 4. Customize the App
+
+Want to modify the app? Here are some ideas:
+
+**Easy Customizations:**
+- Change accent color: `Splitt/Assets.xcassets/AccentColor.colorset/Contents.json`
+- Add more expense categories: `AddExpenseView.swift:19`
+- Add more group icons: `AddGroupView.swift:16-19`
+- Modify avatar colors: `User.swift:26`
+
+**Intermediate Customizations:**
+- Add currency selection (USD, EUR, GBP)
+- Implement export to CSV
+- Add expense photos/receipts
+- Create custom split rules
+
+**Advanced Customizations:**
+- Implement CloudKit sync
+- Add push notifications
+- Multi-currency with exchange rates
+- Recurring/scheduled expenses
+
+### 5. Troubleshooting
+
+**Build Errors:**
+- Ensure Xcode 15+ is installed
+- Clean build folder: `Cmd + Shift + K`
+- Delete derived data: Xcode > Settings > Locations > Derived Data > Delete
+
+**Simulator Issues:**
+- Reset simulator: Device > Erase All Content and Settings
+- Restart simulator: Device > Restart
+- Try different simulator (iPhone 15 Pro recommended)
+
+**Data Issues:**
+- App data is stored locally per device
+- To reset: Delete app from simulator/device and reinstall
+- Check SwiftData container in Debug Navigator
+
+**Signing Issues:**
+- Ensure Apple ID is logged into Xcode
+- Use "Automatically manage signing"
+- Free accounts: Apps expire after 7 days, need re-signing
+
+### 6. Share Your App
+
+**TestFlight (Beta Testing):**
+1. Archive the app: Product > Archive
+2. Upload to App Store Connect
+3. Create TestFlight build
+4. Invite testers via email
+
+**App Store Submission:**
+1. Add app icons (all sizes)
+2. Create screenshots and previews
+3. Write app description and keywords
+4. Submit for review (typically 1-3 days)
 
 ## How to Use
 
