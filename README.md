@@ -1,0 +1,2 @@
+# Splitt
+Clone of Splitwise
